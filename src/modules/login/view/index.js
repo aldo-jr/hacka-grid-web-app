@@ -7,7 +7,9 @@ import Button from "components/Button";
 import GoogleIcon from "modules/login/assets/google-ico.png";
 import MainLogo from "assets/main-logo.png";
 import React from "react";
+import { Redirect } from "react-router-dom";
 import firebaseConfig from "App/config/firebase";
+import { isNil } from "ramda";
 import withFirebaseAuth from "react-with-firebase-auth";
 
 const firebaseApp = firebase.initializeApp(firebaseConfig);
@@ -22,10 +24,13 @@ class LoginView extends React.Component {
   };
 
   handleSubmit = event => {
-    const {props: {signInWithEmailAndPassword}, state: {username, password}} = this;
+    const {
+      props: { signInWithEmailAndPassword },
+      state: { username, password }
+    } = this;
     event.preventDefault();
-
-    signInWithEmailAndPassword(username, password)
+    this.props.requestSignIn();
+    signInWithEmailAndPassword(username, password).then(this.onSuccessSignIn);
   };
 
   handleUsernameChange = e => {
@@ -35,12 +40,22 @@ class LoginView extends React.Component {
     this.setState({ password: e.target.value });
   };
 
+  handleGoogleSignIn = () => {
+    this.props.requestSignIn();
+    this.props.signInWithGoogle().then(this.onSuccessSignIn);
+  };
+
+  onSuccessSignIn = this.props.signInSucceeded;
+
+  onFailSignIn = this.props.signInFailed;
+
   render() {
     const {
       handleSubmit,
       handleUsernameChange,
       handlePasswordChange,
-      props: { user, signOut, signInWithGoogle },
+      handleGoogleSignIn,
+      props: { currentUser },
       state: { username, password }
     } = this;
     return (
@@ -53,7 +68,7 @@ class LoginView extends React.Component {
           <h1>Login</h1>
         </section>
 
-        {!user ? (
+        {!isNil(currentUser) ? (
           <section className="login-view__content-container">
             <form onSubmit={handleSubmit}>
               <input
@@ -88,13 +103,13 @@ class LoginView extends React.Component {
               color="full-primary"
               icon={GoogleIcon}
               className="login-view__google-button"
-              onClick={signInWithGoogle}
+              onClick={handleGoogleSignIn}
             >
               Entrar com a conta google
             </Button>
           </section>
         ) : (
-          <button onClick={signOut}>sair</button>
+          <Redirect to="/app" />
         )}
       </section>
     );
