@@ -1,4 +1,7 @@
-import Header from 'modules/header';
+import { Route, Switch } from "react-router-dom";
+
+import Form from "modules/form";
+import Header from "modules/header";
 import React from "react";
 import { requiresUserAuthenticated } from "../decorators";
 
@@ -8,7 +11,9 @@ class MeView extends React.Component {
     return (
       <section>
         <Header />
-        <h1>ÁREA AUTENTICADA</h1>
+
+        <Route exact path="/me/form" component={Form} />
+        <Route exact path="/me/mkt/plans" component={Form} />
       </section>
     );
   }

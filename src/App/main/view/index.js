@@ -1,10 +1,9 @@
-import './index.scss'
+import "./index.scss";
 
-import { Route, Switch } from "react-router-dom";
+import { Redirect, Route, Switch } from "react-router-dom";
 
-import Home from 'App/home'
-import Login from 'modules/login'
-import Me from 'App/me'
+import Login from "modules/login";
+import Me from "App/me";
 import React from "react";
 
 class App extends React.Component {
@@ -13,9 +12,9 @@ class App extends React.Component {
       <div className="App">
         <div className="App__content">
           <Switch>
-            <Route exact path="/login" component={Login} />
-            <Route exact path="/" component={Home} />
-            <Route exact path="/me" component={Me} />
+            <Route path="/login" component={Login} />
+            <Route path="/me" component={Me} />
+            <Route component={() => <Redirect to='/login' />} />
           </Switch>
         </div>
       </div>

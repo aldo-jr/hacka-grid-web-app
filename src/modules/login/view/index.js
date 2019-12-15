@@ -112,7 +112,7 @@ class LoginView extends React.Component {
             </Button>
           </section>
         ) : (
-          <Redirect to="/me" />
+          <Redirect to="/me/form" />
         )}
       </section>
     );
