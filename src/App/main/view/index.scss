@@ -34,6 +34,8 @@
 html {
   @extend %base-reset;
   font-size: $rem-size;
+  max-width:800px;
+  margin:0 auto;
 }
 
 body {

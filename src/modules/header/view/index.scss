@@ -1,0 +1,76 @@
+@import "base/style/main";
+
+.header-view {
+  box-sizing: border-box;
+  display: flex;
+  justify-content: space-between;
+  align-content: center;
+  align-items: flex-end;
+  padding: 1rem 1rem 0;
+  border-bottom: 1px solid $light-grey;
+
+  &__back {
+    height: 40px;
+    width: 40px;
+    background: transparent;
+    border: none;
+    color: $medium-grey;
+  }
+
+  &__logo {
+    max-width: 200px;
+  }
+
+  &__profile {
+    max-width: 40px;
+    position: relative;
+  }
+
+  &__profile-image {
+    max-width: 40px;
+    border-radius: 100%;
+  }
+
+  &__profile-sub-menu {
+    position: absolute;
+    right: 0;
+    visibility: hidden;
+    opacity: 0;
+    top: 80%;
+    transition: all 0.3s ease-in-out;
+
+    width:100px;
+    background:$white;
+    border-radius:0 0 10px 10px;
+    border-right: 1px solid $light-grey;
+    border-left: 1px solid $light-grey;
+    border-bottom: 1px solid $light-grey;
+    box-sizing: border-box;
+    padding: 2rem 0;
+
+    &--open {
+      top: calc(100% + 1px);
+      opacity: 1;
+      visibility: visible;
+    }
+
+    &-list {
+      width:100%;
+
+      li {
+        width:100%;
+
+        button {
+          width:100%;
+          box-sizing: border-box;
+          padding:.6rem 1rem;
+          text-align: left;
+          font-size: 1em;
+          border:none;
+          border-bottom: 1px solid $light-grey;
+          background: $white;
+        }
+      }
+    }
+  }
+}

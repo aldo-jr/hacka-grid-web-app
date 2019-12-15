@@ -24,5 +24,5 @@ export default createReducer(initialState, {
     loaded: false,
     error: action.payload.error
   }),
-  [TYPES.SIGN_OUT]: _ => initialState
+  [TYPES.LOGOUT]: _ => initialState
 });
