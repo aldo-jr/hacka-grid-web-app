@@ -1,5 +1,6 @@
 import { Route, Switch } from "react-router-dom";
 
+import Home from 'App/home'
 import React from "react";
 
 class App extends React.Component {
@@ -8,7 +9,7 @@ class App extends React.Component {
       <div className="App">
         <div className="App__content">
           <Switch>
-            <Route path="/home" component={() => {}} />
+            <Route exact path="/" component={Home} />
           </Switch>
         </div>
       </div>
