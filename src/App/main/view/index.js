@@ -4,6 +4,7 @@ import { Route, Switch } from "react-router-dom";
 
 import Home from 'App/home'
 import Login from 'modules/login'
+import Me from 'App/me'
 import React from "react";
 
 class App extends React.Component {
@@ -14,6 +15,7 @@ class App extends React.Component {
           <Switch>
             <Route exact path="/login" component={Login} />
             <Route exact path="/" component={Home} />
+            <Route path="/me/*" component={Me} />
           </Switch>
         </div>
       </div>
