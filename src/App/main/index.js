@@ -1,5 +1,3 @@
-import './index.scss';
-
 import AppRouter from "./router";
 import { Provider } from "react-redux";
 import React from "react";

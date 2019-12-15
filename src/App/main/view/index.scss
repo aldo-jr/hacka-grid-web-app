@@ -1,0 +1,106 @@
+@import "base/style/main";
+
+@keyframes fadein {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+%base-reset {
+  border: 0;
+  padding: 0;
+  margin: 0;
+  height: 100%;
+  user-select: none;
+  animation: fadein 0.5s;
+  font-family: $default_font, $fallback_font;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  vertical-align: baseline;
+
+  &:focus {
+    outline: none;
+  }
+}
+
+html {
+  @extend %base-reset;
+  font-size: $rem-size;
+}
+
+body {
+  @extend %base-reset;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: $white;
+  font-size: $regular-text-size;
+  line-height: $regular-line-height;
+}
+
+h1 {
+  font-weight: bold;
+  font-size: $biggest-text-size;
+  line-height: $biggest-line-height;
+}
+
+h2 {
+  font-size: $big-text-size;
+  font-weight: 500;
+  line-height: $big-line-height;
+}
+
+h3 {
+  font-size: $medium-text-size;
+  font-weight: 500;
+}
+
+p {
+  -webkit-margin-before: 0;
+  -webkit-margin-after: 0;
+}
+
+input, textarea {
+  font-size: $small-text-size;
+}
+
+#root {
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+}
+
+::-webkit-scrollbar {
+  width: 16px;
+  border-radius: 4px;
+  background-color: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  width: 8px;
+  border-radius: 8px;
+  background-color: rgba(0, 0, 0, .2);
+  background-clip: padding-box;
+  border: 4px solid transparent;
+}
+
+
+.App {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+
+  &__content {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+  }
+}
