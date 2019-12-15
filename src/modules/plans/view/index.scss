@@ -1,0 +1,39 @@
+@import "base/style/main";
+
+.plans-view {
+  box-sizing: border-box;
+  padding: 2rem 1rem;
+  display: flex;
+  flex-direction: column;
+
+  h3 {
+    text-align: center;
+    margin-bottom: 40px;
+  }
+
+  &__row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+
+  .plan-card {
+    width: 48%;
+    height: 220px;
+    border: 1px solid $light-grey;
+    margin-bottom: 16px;
+
+    &__image {
+      background: $regular-grey;
+      width: 100%;
+      height: 160px;
+    }
+
+    &__description {
+      display: flex;
+      flex-direction: column;
+      box-sizing: border-box;
+      padding: 1rem;
+    }
+  }
+}

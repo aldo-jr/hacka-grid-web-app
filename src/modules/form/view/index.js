@@ -68,7 +68,7 @@ class FormView extends React.Component {
             placeholder="Nome"
             value={name}
             onChange={handleNameChange}
-            required
+            
           />
           <input
             type="date"
@@ -76,7 +76,7 @@ class FormView extends React.Component {
             placeholder="Data de Nascimento"
             value={birthDay}
             onChange={handleBirthDayChange}
-            required
+            
           />
         </div>
         <div className="form-view__row">
@@ -86,11 +86,11 @@ class FormView extends React.Component {
             placeholder="CPF"
             value={document}
             onChange={handleDocumentChange}
-            required
+            
           />
         </div>
         <div className="form-view__row">
-          <select name="job" value={job} onChange={handleJobChange} required>
+          <select name="job" value={job} onChange={handleJobChange} >
             <option>Selecione sua profissão</option>
           </select>
         </div>
@@ -101,16 +101,16 @@ class FormView extends React.Component {
             placeholder="Renda mensal"
             value={revenue}
             onChange={handleRevenueChange}
-            required
+            
           />
-          <select name="gender" value={gender} onChange={handleGenderChange} required>
+          <select name="gender" value={gender} onChange={handleGenderChange} >
             <option>Selecione seu gênero</option>
             <option value="0">Masculino</option>
             <option value="1">Feminino</option>
           </select>
         </div>
         <div className="form-view__row">
-          <select name="estate" value={estate} onChange={handleEstateChange} required>
+          <select name="estate" value={estate} onChange={handleEstateChange} >
             <option>UF</option>
             <option value="sp">SP</option>
           </select>
