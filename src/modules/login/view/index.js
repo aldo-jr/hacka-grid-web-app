@@ -9,7 +9,7 @@ import MainLogo from "assets/main-logo.png";
 import React from "react";
 import { Redirect } from "react-router-dom";
 import firebaseConfig from "App/config/firebase";
-import { isNil } from "ramda";
+import { isEmpty } from "ramda";
 import withFirebaseAuth from "react-with-firebase-auth";
 
 const firebaseApp = firebase.initializeApp(firebaseConfig);
@@ -45,7 +45,9 @@ class LoginView extends React.Component {
     this.props.signInWithGoogle().then(this.onSuccessSignIn);
   };
 
-  onSuccessSignIn = this.props.signInSucceeded;
+  onSuccessSignIn = res => {
+    this.props.signInSucceeded(res.user);
+  };
 
   onFailSignIn = this.props.signInFailed;
 
@@ -58,6 +60,7 @@ class LoginView extends React.Component {
       props: { currentUser },
       state: { username, password }
     } = this;
+
     return (
       <section className="login-view">
         <header className="login-view__header">
@@ -68,7 +71,7 @@ class LoginView extends React.Component {
           <h1>Login</h1>
         </section>
 
-        {!isNil(currentUser) ? (
+        {isEmpty(currentUser) ? (
           <section className="login-view__content-container">
             <form onSubmit={handleSubmit}>
               <input
