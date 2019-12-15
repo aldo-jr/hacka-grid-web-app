@@ -1,12 +1,12 @@
-import React from 'react';
+import React from "react";
 
-class HomeView extends React.Component{
+class HomeView extends React.Component {
   render() {
-    return(
+    return (
       <div>
         HOME
       </div>
-    )
+    );
   }
 }
 
