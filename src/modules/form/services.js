@@ -9,7 +9,7 @@ export const searchPlansByDataService = ({
   // sexoId,
   // uf
 }) =>
-  Promise.reject({
+  Promise.resolve({
     Valor: {
       simulacoes: [
         {

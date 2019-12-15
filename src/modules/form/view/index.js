@@ -1566,6 +1566,10 @@ class FormView extends React.Component {
             <option>Selecione seu gênero</option>
             <option value="0">Masculino</option>
             <option value="1">Feminino</option>
+            <option value="2">Travesti</option>
+            <option value="3">Transgênero</option>
+            <option value="4">Neutro</option>
+            <option value="5">Outros</option>
           </select>
         </div>
         <div className="form-view__row">

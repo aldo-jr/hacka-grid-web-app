@@ -34,8 +34,8 @@
 html {
   @extend %base-reset;
   font-size: $rem-size;
-  max-width:800px;
-  margin:0 auto;
+  max-width: 800px;
+  margin: 0 auto;
 }
 
 body {
@@ -70,7 +70,8 @@ p {
   -webkit-margin-after: 0;
 }
 
-input, textarea {
+input,
+textarea {
   font-size: $small-text-size;
 }
 
@@ -88,11 +89,10 @@ input, textarea {
 ::-webkit-scrollbar-thumb {
   width: 8px;
   border-radius: 8px;
-  background-color: rgba(0, 0, 0, .2);
+  background-color: rgba(0, 0, 0, 0.2);
   background-clip: padding-box;
   border: 4px solid transparent;
 }
-
 
 .App {
   height: 100%;
@@ -104,4 +104,8 @@ input, textarea {
     display: flex;
     flex-direction: column;
   }
+}
+
+img {
+  max-width: 100%;
 }
